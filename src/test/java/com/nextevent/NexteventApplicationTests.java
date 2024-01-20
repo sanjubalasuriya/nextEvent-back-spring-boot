@@ -1,0 +1,13 @@
+package com.nextevent;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class NexteventApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
