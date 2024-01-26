@@ -40,6 +40,9 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private Set<Ticket> tickets;
 
+    @OneToMany(mappedBy = "customer")
+    private Set<Cart> cart;
+
 
     public Customer(String gender, String nicOrPassportPrefix, String nicOrPassport, String mobile, User user) {
         this.gender = gender;
