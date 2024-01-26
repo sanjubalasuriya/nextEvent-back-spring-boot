@@ -34,6 +34,8 @@ public class EventOrganizer {
     @OneToMany(mappedBy = "eventOrganizer")
     private Set<Event> events;
 
+
+
     public EventOrganizer(String mobile, String address, User user) {
         this.mobile = mobile;
         this.address = address;
