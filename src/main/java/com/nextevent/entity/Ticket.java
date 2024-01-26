@@ -21,7 +21,7 @@ public class Ticket {
     @Column(name = "ticket_id")
     private int ticketId;
 
-    @Column(name = "ticketNumber")
+    @Column(name = "ticketNumber", nullable = false, unique = true)
     private String ticketNumber;
 
     @Column(name = "ticketPrice")
