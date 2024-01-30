@@ -48,13 +48,14 @@ public class CartServiceImpl implements CartService {
         if (cartRepo.existsById(cartId)){
             Cart cart = cartRepo.getReferenceById(cartId);
 
-            return new ResponseCartDTO(
-                    cart.getCartId(),
-                    cart.getQty(),
-                    cart.getTicketCategory(),
-                    cart.getCustomer()
+            ResponseCartDTO responseCartDTO = new ResponseCartDTO();
 
-            );
+            responseCartDTO.setCartId(cart.getCartId());
+            responseCartDTO.setQty(cart.getQty());
+            responseCartDTO.setCustomer(cart.getCustomer().getCustomerId());
+            responseCartDTO.setTicketCategory(cart.getTicketCategory().getTicketCategoryId());
+
+            return responseCartDTO;
         }else {
             throw new RuntimeException("Not Found");
         }
@@ -98,8 +99,8 @@ public class CartServiceImpl implements CartService {
             ResponseCartDTO responseCartDTO = new ResponseCartDTO(
                     cart.getCartId(),
                     cart.getQty(),
-                    cart.getTicketCategory(),
-                    cart.getCustomer()
+                    cart.getTicketCategory().getTicketCategoryId(),
+                    cart.getCustomer().getCustomerId()
             );
             responseEventDTOS.add(responseCartDTO);
         }
