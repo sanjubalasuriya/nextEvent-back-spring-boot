@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class RequestTicketOrganizerRegisterDTO {
 
-    private int userId;
+
     private String email;
     private String password;
     private String role;
