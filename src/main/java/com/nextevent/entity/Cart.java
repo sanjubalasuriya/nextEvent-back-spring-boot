@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "customer")
+@Table(name = "cart")
 public class Cart {
 
     @Id
@@ -23,12 +23,13 @@ public class Cart {
     private int qty;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id", nullable = false)
+    @JoinColumn(name = "ticket_category_id", nullable = false)
     private TicketCategory ticketCategory;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id", nullable = false)
+    @JoinColumn(name = "customer_id")
     private Customer customer;
+
 
     public Cart(int qty, TicketCategory ticketCategory, Customer customer) {
         this.qty = qty;
