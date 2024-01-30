@@ -21,16 +21,16 @@ public class Ticket {
     @Column(name = "ticket_id")
     private int ticketId;
 
-    @Column(name = "ticketNumber", nullable = false, unique = true)
+    @Column(name = "ticket_number", nullable = false, unique = true)
     private String ticketNumber;
 
-    @Column(name = "ticketPrice")
+    @Column(name = "ticket_price")
     private int ticketPrice;
 
 //    @Column(name = "seatNumber")
 //    private String seatNumber;
 
-    @Column(name = "ticketValidDate")
+    @Column(name = "ticket_valid_date")
     private Date ticketValidDate;
 
     @Column(name = "is_valid")
