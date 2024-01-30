@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("api/v1/customer-register")
+@RequestMapping("api/v1/register/customer-register")
 public class CustomerRegisterController {
 
 
