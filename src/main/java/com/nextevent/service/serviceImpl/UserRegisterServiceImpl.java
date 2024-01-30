@@ -4,12 +4,14 @@ import com.nextevent.dto.requestDto.RequestCustomerRegisterDTO;
 import com.nextevent.dto.requestDto.RequestTicketOrganizerRegisterDTO;
 import com.nextevent.entity.Customer;
 import com.nextevent.entity.EventOrganizer;
+import com.nextevent.entity.Role;
 import com.nextevent.entity.User;
 import com.nextevent.repository.CustomerRepo;
 import com.nextevent.repository.EventOrganizerRepo;
 import com.nextevent.repository.UserRepo;
 import com.nextevent.service.UserRegisterService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,16 +23,18 @@ public class UserRegisterServiceImpl implements UserRegisterService {
     private final UserRepo userRepo;
     private final CustomerRepo customerRepo;
     private final EventOrganizerRepo eventOrganizerRepo;
+    private final PasswordEncoder passwordEncoder;
+
 
     @Override
     @Transactional
     public String saveCustomer(RequestCustomerRegisterDTO requestCustomerRegisterDTO) {
 
-        User user = new User(
-                requestCustomerRegisterDTO.getEmail(),
-                requestCustomerRegisterDTO.getPassword(),
-                requestCustomerRegisterDTO.getRole()
-        );
+        User user = new User();
+
+        user.setEmail(requestCustomerRegisterDTO.getEmail());
+        user.setPassword(passwordEncoder.encode(requestCustomerRegisterDTO.getPassword()));
+        user.setRole(Role.USER);
 
         userRepo.save(user);
 
@@ -51,11 +55,10 @@ public class UserRegisterServiceImpl implements UserRegisterService {
 
     @Override
     public String saveOrganizer(RequestTicketOrganizerRegisterDTO requestTicketOrganizerRegisterDTO) {
-        User user = new User(
-                requestTicketOrganizerRegisterDTO.getEmail(),
-                requestTicketOrganizerRegisterDTO.getPassword(),
-                requestTicketOrganizerRegisterDTO.getRole()
-        );
+        User user = new User();
+        user.setEmail(requestTicketOrganizerRegisterDTO.getEmail());
+        user.setPassword(passwordEncoder.encode(requestTicketOrganizerRegisterDTO.getPassword()));
+        user.setRole(Role.ADMIN);
 
         userRepo.save(user);
 
