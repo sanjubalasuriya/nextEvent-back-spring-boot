@@ -13,7 +13,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("api/v1/organizer-register")
+@RequestMapping("api/v1/register/organizer-register")
 public class EventOrganizerRegisterController {
 
     private final UserRegisterService userRegisterService;
