@@ -13,6 +13,6 @@ public class ResponseCartDTO {
 
     private int cartId;
     private int qty;
-    private TicketCategory ticketCategory;
-    private Customer customer;
+    private int ticketCategory;
+    private int customer;
 }
