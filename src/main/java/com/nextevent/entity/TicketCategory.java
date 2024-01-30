@@ -34,7 +34,7 @@ public class TicketCategory {
     @JoinColumn(name = "event_id", nullable = false)
     private Event event;
 
-    @OneToMany(mappedBy = "ticket_category")
+    @OneToMany(mappedBy = "ticketCategory")
     private Set<Cart> cart;
 
     public TicketCategory(String category, int ticketPrice, int ticketCount, Event event) {
