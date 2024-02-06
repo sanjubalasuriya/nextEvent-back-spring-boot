@@ -13,4 +13,6 @@ public class ResponseTicketCategoryDTO {
     private String category;
     private int ticketPrice;
     private int ticketCount;
+    private String eventName;
+
 }
