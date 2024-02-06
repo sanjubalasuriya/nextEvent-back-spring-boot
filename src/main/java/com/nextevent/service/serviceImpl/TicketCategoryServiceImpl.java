@@ -53,7 +53,9 @@ public class TicketCategoryServiceImpl implements TicketCategoryService {
                     ticketCategory.getTicketCategoryId(),
                     ticketCategory.getCategory(),
                     ticketCategory.getTicketPrice(),
-                    ticketCategory.getTicketCount()
+                    ticketCategory.getTicketCount(),
+                    ticketCategory.getEvent().getEventName()
+
             );
         }else {
             throw new RuntimeException("Not Found");
@@ -101,7 +103,8 @@ public class TicketCategoryServiceImpl implements TicketCategoryService {
                     ticketCategory.getTicketCategoryId(),
                     ticketCategory.getCategory(),
                     ticketCategory.getTicketPrice(),
-                    ticketCategory.getTicketCount()
+                    ticketCategory.getTicketCount(),
+                    ticketCategory.getEvent().getEventName()
             );
             responseTicketCategoryDTOS.add(responseTicketCategoryDTO);
         }
@@ -119,7 +122,8 @@ public class TicketCategoryServiceImpl implements TicketCategoryService {
                     ticketCategory.getTicketCategoryId(),
                     ticketCategory.getCategory(),
                     ticketCategory.getTicketPrice(),
-                    ticketCategory.getTicketCount()
+                    ticketCategory.getTicketCount(),
+                    ticketCategory.getEvent().getEventName()
             );
             responseTicketCategoryDTOS.add(responseTicketCategoryDTO);
         }
@@ -144,7 +148,8 @@ public class TicketCategoryServiceImpl implements TicketCategoryService {
                     ticketCategory.getTicketCategoryId(),
                     ticketCategory.getCategory(),
                     ticketCategory.getTicketPrice(),
-                    ticketCategory.getTicketCount()
+                    ticketCategory.getTicketCount(),
+                    ticketCategory.getEvent().getEventName()
             );
             responseTicketCategoryDTOS.add(responseTicketCategoryDTO);
         }
