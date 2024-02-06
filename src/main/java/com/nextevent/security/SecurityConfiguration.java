@@ -34,9 +34,18 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request.requestMatchers("api/v1/register/**").permitAll()
-                        .requestMatchers("/api/v1/event/**").hasAnyAuthority(Role.ADMIN.name())
-                        .requestMatchers("/api/v1/ticket-category/**").hasAnyAuthority(Role.ADMIN.name())
+                        .requestMatchers("/api/v1/ticket-category/get-by-eventId").permitAll()
+                        .requestMatchers("/api/v1/event/all").permitAll()
+                        .requestMatchers("/api/v1/event/get-by-id").permitAll()
+                        .requestMatchers("/api/v1/event/update").hasAnyAuthority(Role.ADMIN.name())
+                        .requestMatchers("/api/v1/event/save").hasAnyAuthority(Role.ADMIN.name())
+                        .requestMatchers("/api/v1/ticket-category/save").hasAnyAuthority(Role.ADMIN.name())
                         .requestMatchers("/api/v1/organizer/**").hasAnyAuthority(Role.ADMIN.name())
+                        .requestMatchers("/api/v1/ticket-category/save").hasAnyAuthority(Role.ADMIN.name())
+
+
+                        .requestMatchers("/api/v1/ticket-category/**").hasAnyAuthority(Role.USER.name())
+                        .requestMatchers("/api/v1/event/get-by-id").hasAnyAuthority(Role.USER.name())
 
                         .requestMatchers("/api/v1/customer/**").hasAnyAuthority(Role.USER.name())
                         .requestMatchers("/api/v1/cart/**").hasAnyAuthority(Role.USER.name())
