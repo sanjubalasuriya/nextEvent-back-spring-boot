@@ -40,10 +40,10 @@ public class TicketServiceImpl implements TicketService {
 
         for (RequestTicketDTO requestTicketDTO : requestTicketDTOSaveList) {
 
-            TicketCategory ticketCategory = ticketCategoryRepo.getReferenceById(requestTicketDTO.getTicketCategoryId());
+            TicketCategory ticketCategory = ticketCategoryRepo.getReferenceById(requestTicketDTO.getTicketCategory());
             Event event = eventRepo.getReferenceById(ticketCategory.getEvent().getEventId());
 
-            for (int i = 0; i < requestTicketDTO.getTicketCount(); i++){
+            for (int i = 0; i < requestTicketDTO.getQty(); i++){
 
                 int random = new Random().nextInt(900000) + 100000;
                 String ticketNumber = "TKT"+random;
@@ -55,7 +55,7 @@ public class TicketServiceImpl implements TicketService {
                         ticketCategory.getTicketPrice(),
                         event.getEventDate(),
                         true,
-                        customerRepo.getReferenceById(requestTicketDTO.getCustomerId())
+                        customerRepo.getReferenceById(requestTicketDTO.getCustomer())
 
 
                 );
