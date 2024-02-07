@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @Data
 public class RequestTicketDTO {
 
-    private int ticketPrice;
-    private int ticketCategoryId;
-    private int customerId;
-    private int ticketCount;
+    private int price;
+    private int ticketCategory;
+    private int customer;
+    private int qty;
 }
