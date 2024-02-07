@@ -40,6 +40,16 @@ public class CartController {
                 , HttpStatus.OK);
     }
 
+    @GetMapping(
+            path = "/get-by-customerId",
+            params = "customerId"
+    )
+    public ResponseEntity<StandardResponse> getCartByCustomerId(int customerId) {
+        List<ResponseCartDTO> tickets = cartService.findByCustomerId(customerId);
+        return new ResponseEntity<StandardResponse>(new StandardResponse(200, "success", tickets)
+                , HttpStatus.OK);
+    }
+
     @PutMapping("/update")
     public ResponseEntity<StandardResponse> updateCart(@RequestBody RequestUpdateCartDTO requestUpdateCartDTO) {
         String message = cartService.updateCart(requestUpdateCartDTO);
