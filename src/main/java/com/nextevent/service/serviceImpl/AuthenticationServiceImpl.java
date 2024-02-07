@@ -50,7 +50,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         var refreshToken = jwtService.createRefreshToken(user, user.getRole());
 
         JwtAuthenticationResponseDto jwtAuthenticationResponseDto = new JwtAuthenticationResponseDto();
-        jwtAuthenticationResponseDto.setToken(jwt);
+        jwtAuthenticationResponseDto.setToken("Bearer "+jwt);
         jwtAuthenticationResponseDto.setRefreshToken(refreshToken);
         return jwtAuthenticationResponseDto;
     }
