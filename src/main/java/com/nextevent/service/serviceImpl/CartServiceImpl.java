@@ -106,4 +106,24 @@ public class CartServiceImpl implements CartService {
         }
         return responseEventDTOS;
     }
+
+    @Override
+    public List<ResponseCartDTO> findByCustomerId(int customerId) {
+
+
+        List<Cart> cartList = cartRepo.findAllByCustomer_CustomerId(customerId);
+
+        List<ResponseCartDTO> responseEventDTOS = new ArrayList<>();
+
+        for(Cart cart : cartList){
+            ResponseCartDTO responseCartDTO = new ResponseCartDTO(
+                    cart.getCartId(),
+                    cart.getQty(),
+                    cart.getTicketCategory().getTicketCategoryId(),
+                    cart.getCustomer().getCustomerId()
+            );
+            responseEventDTOS.add(responseCartDTO);
+        }
+        return responseEventDTOS;
+    }
 }
