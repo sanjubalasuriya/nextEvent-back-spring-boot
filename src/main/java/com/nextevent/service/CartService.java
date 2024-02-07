@@ -16,4 +16,6 @@ public interface CartService {
     String deleteCart(int cartId);
 
     List<ResponseCartDTO> getAllCart();
+
+    List<ResponseCartDTO> findByCustomerId(int customerId);
 }
